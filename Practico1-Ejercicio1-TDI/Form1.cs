@@ -30,27 +30,40 @@ namespace Practico1_Ejercicio1_TDI
                     FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
                     fileStream.Read(bytes, 0, 4);
                     string description = BitConverter.ToString(bytes);
-                    MessageBox.Show("Los primeros 4 bytes son: "+description); 
-                    fileStream.Seek(16, 0);
-                    fileStream.Read(bytes, 0, 4);
-                    fileStream.Close();
-                    int Subchunk1Size = BitConverter.ToInt32(bytes, 0);
-
-                    if (Subchunk1Size < 16)
-                        MessageBox.Show("This is not a valid wav file");
+                    string riff = System.Text.Encoding.ASCII.GetString(bytes);
+                    MessageBox.Show("Los primeros 4 bytes: "+ riff); 
+                    if (riff == "RIFF")
+                    {
+                        MessageBox.Show("Archivo WAV válido");
+                    }
                     else
-                        switch (Subchunk1Size)
-                        {
-                            case 16:
-                                MessageBox.Show("44-byte header");
-                                break;
-                            case 18:
-                                MessageBox.Show("46-byte header");
-                                break;
-                            default:
-                                MessageBox.Show("Header contains extra data and is larger than 46 bytes");
-                                break;
-                        }
+                    {
+                        MessageBox.Show("Archivo WAV inválido");
+                    }
+                    
+                    
+                    
+                    
+                    //fileStream.Seek(16, 0);
+                    //fileStream.Read(bytes, 0, 4);
+                    //fileStream.Close();
+                    //int Subchunk1Size = BitConverter.ToInt32(bytes, 0);
+
+                    //if (Subchunk1Size < 16)
+                    //    MessageBox.Show("This is not a valid wav file");
+                    //else
+                    //    switch (Subchunk1Size)
+                    //    {
+                    //        case 16:
+                    //            MessageBox.Show("44-byte header");
+                    //            break;
+                    //        case 18:
+                    //            MessageBox.Show("46-byte header");
+                    //            break;
+                    //        default:
+                    //            MessageBox.Show("Header contains extra data and is larger than 46 bytes");
+                    //            break;
+                    //    }
 
 
                 }
