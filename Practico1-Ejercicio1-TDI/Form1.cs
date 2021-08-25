@@ -22,28 +22,39 @@ namespace Practico1_Ejercicio1_TDI
         {
             if (openFile.ShowDialog() == DialogResult.OK)
             {
-                 string path = openFile.FileName;
+                string path = openFile.FileName;
                 outputTextBox.Text = path;
                 if (File.Exists(path))
                 {
                     byte[] bytes = new byte[4];
                     FileStream fileStream = new FileStream(path, FileMode.Open, FileAccess.Read);
                     fileStream.Read(bytes, 0, 4);
-                    string description = BitConverter.ToString(bytes);
                     string riff = System.Text.Encoding.ASCII.GetString(bytes);
                     MessageBox.Show("Los primeros 4 bytes: "+ riff); 
                     if (riff == "RIFF")
                     {
+
                         MessageBox.Show("Archivo WAV válido");
+                        byte[] bytes2 = new byte[4];
+                        fileStream.Seek(4, 0);
+                        fileStream.Read(bytes2, 0, 4);
+                        int chunckSize = BitConverter.ToInt32(bytes2, 0);
+                        byte[] bytes3 = new byte[4];
+                        fileStream.Seek(8, 0);
+                        fileStream.Read(bytes3, 0, 4);
+                        string format = System.Text.Encoding.ASCII.GetString(bytes3);
+                        MessageBox.Show("ChunckSize es: " + chunckSize.ToString());
+                        MessageBox.Show("EL Formato es " + format);
                     }
                     else
                     {
                         MessageBox.Show("Archivo WAV inválido");
                     }
-                    
-                    
-                    
-                    
+                    fileStream.Close();
+
+
+
+
                     //fileStream.Seek(16, 0);
                     //fileStream.Read(bytes, 0, 4);
                     //fileStream.Close();

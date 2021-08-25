@@ -59,10 +59,10 @@ namespace Practico1_Ejercicio1_TDI
             // 
             this.outputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.outputTextBox.Location = new System.Drawing.Point(23, 153);
-            this.outputTextBox.MinimumSize = new System.Drawing.Size(0, 50);
+            this.outputTextBox.MinimumSize = new System.Drawing.Size(4, 50);
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(355, 50);
+            this.outputTextBox.Size = new System.Drawing.Size(355, 30);
             this.outputTextBox.TabIndex = 2;
             this.outputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
