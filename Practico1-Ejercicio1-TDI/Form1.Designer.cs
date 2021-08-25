@@ -53,27 +53,28 @@ namespace Practico1_Ejercicio1_TDI
             this.loadButton.TabIndex = 1;
             this.loadButton.Text = "Cargar";
             this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
             // 
             // outputTextBox
             // 
             this.outputTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.outputTextBox.Location = new System.Drawing.Point(77, 152);
+            this.outputTextBox.Location = new System.Drawing.Point(23, 153);
             this.outputTextBox.MinimumSize = new System.Drawing.Size(0, 50);
             this.outputTextBox.Name = "outputTextBox";
             this.outputTextBox.ReadOnly = true;
-            this.outputTextBox.Size = new System.Drawing.Size(240, 50);
+            this.outputTextBox.Size = new System.Drawing.Size(355, 50);
             this.outputTextBox.TabIndex = 2;
             this.outputTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // openFile
             // 
-            this.openFile.FileName = "openFileDialog1";
+            this.openFile.FileName = "openFile";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 268);
+            this.ClientSize = new System.Drawing.Size(402, 239);
             this.Controls.Add(this.outputTextBox);
             this.Controls.Add(this.loadButton);
             this.Controls.Add(this.tittleLabel);
